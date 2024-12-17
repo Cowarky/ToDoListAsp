@@ -1,0 +1,27 @@
+[
+    {
+        "name": "do bed",
+        "status": "incomplete",
+        "description": "Tasks related to making the bed."
+    },
+    {
+        "name": "do bed",
+        "status": "incomplete",
+        "description": "Tasks related to making the bed."
+    },
+    {
+        "name": "do laundry",
+        "status": "incomplete",
+        "description": "Tasks related to washing and folding clothes."
+    },
+    {
+        "name": "grocery shopping",
+        "status": "incomplete",
+        "description": "Tasks related to buying groceries for the week."
+    },
+    {
+        "name": "clean kitchen",
+        "status": "incomplete",
+        "description": "Tasks related to cleaning and organizing the kitchen."
+    }
+]

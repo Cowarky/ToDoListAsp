@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Your Tasks";
+}
+@model List<TestingModels> 
+<div class="text-center">
+    <h1 class="display-4">Tasks</h1>
+    
+    <table style="width: 100%;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Completion Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.Name</td>
+                <td>@task.Description</td>
+                @using (Html.BeginForm("UpdateTaskCompletion", "Home", new { id = task.ID }, FormMethod.Post))
+                    {
+                <td>
+                    
+                    @task.IsComplete
+                        <input type="hidden" name="id" value="@task.ID" />
+                        <input type="hidden" name="isComplete" value="@(!task.IsComplete)" />
+                        
+                    
+                </td>
+                <td>
+                    <button type="submit">
+                            @(task.IsComplete ? "Uncheck" : "Check")
+                        </button>
+                </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+</script>

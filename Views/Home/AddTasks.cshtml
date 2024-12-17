@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Add and remove tasks";
+}
+
+@model TestingModels
+    <center>
+
+    
+    <div id="Error-handler">
+            <input type="button" class="close-button" value="X">
+            <div class="Error-handler-container">
+
+            </div>
+    </div>
+    </center>
+    <h1>
+        Add Tasks
+    </h1>
+    <form asp-action="AddTasksForm" id="taskForm" asp-controller="Home">
+        <p>
+            Name
+        </p>
+        <input type="text" name="Name" asp-for="Name" onkeyup="CheckInput(this)">
+        <p>
+            Description
+        </p>
+        <input type="text" name="Description" asp-for="Description" onkeyup="CheckInput(this)">
+        <button type="button" onclick="Validate()">submit</button>
+    </form>
+    
+    
+    <script>
+        function CheckInput(event){
+            const inputVal = event.value;
+            if (inputVal != "")
+                return
+            var errorhandler = document.querySelector(".Error-handler-container");
+            var errorBox = document.getElementById("Error-handler")
+            Fade(errorBox)
+            errorhandler.textContent = "Please complete all the form"
+        }
+        function Validate(){
+            var name = document.getElementsByName("Name")[0].value;
+            var description = document.getElementsByName("Description")[0].value;
+            var myform = document.getElementById("taskForm");
+            if (name != "" && description != ""){
+                myform.submit()
+            }
+
+        }
+        var closeButton = document.querySelector(".close-button")
+        var errorbox = document.querySelector('#Error-handler')
+        var opacity = 0
+        var intervalID = 0
+        closeButton.addEventListener('click',function (){Fade(errorbox)})
+        function Fade(element){
+            element.classList.toggle('fade')
+        }
+    </script>
+    
